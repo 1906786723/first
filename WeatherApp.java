@@ -43,7 +43,7 @@ public class WeatherApp {
         frame.setUndecorated(true);
 
         // 设置背景图片
-        setContentPaneBackground(frame, "E://app/calendar/src/晴と雨.jpg");
+        setContentPaneBackground(frame, "./晴と雨.jpg");
 
         timeLabel = new JLabel("Current Time: ");
         temperatureLabel = new JLabel("Temperature: ");
@@ -84,21 +84,7 @@ public class WeatherApp {
                     mouseX = e.getX();
                     mouseY = e.getY();
                 }
-                if(e.getButton()==MouseEvent.BUTTON1&&false){
-                    if(locked){
-                    mouseX = e.getX();
-                    mouseY = e.getY();
-                    Robot robot=null;
-                    try{
-                        robot=new Robot();
-                    }
-                    catch (Exception ex){
-                        ;
-                    }
-                    frame.setOpacity(0.0f);
-                    robot.mousePress(InputEvent.BUTTON1_MASK);
-                    frame.setOpacity(0.7f);
-                }}
+                
 
             }
         });
@@ -206,7 +192,7 @@ public class WeatherApp {
     }
     private String getTemperatureFromPython0() {
         try {
-            ProcessBuilder processBuilder = new ProcessBuilder("python", "E://app/calendar/src/weather.py");
+            ProcessBuilder processBuilder = new ProcessBuilder("python", "./weather.py");
             Process process = processBuilder.start();
 
             // 获取Python脚本的输出
